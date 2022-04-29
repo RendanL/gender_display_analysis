@@ -1,0 +1,16 @@
+---
+title: "gender_display"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(dplyr)
+library(readr)
+library(ggplot2)
+
+gender_display <- read_csv(
+  '../data/gender_display.csv')
+```
+
