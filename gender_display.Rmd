@@ -74,6 +74,10 @@ chisq.test(
 
 #Bodydisplay
 ```{r}
+Bodydisplay_median <- gender_display %>% group_by(gender) %>% summarise(Mdn = median(Bodydisplay))
+
+Bodydisplay_median
+
 gender_display %>%
   wilcox.test(
     Bodydisplay ~ gender,
@@ -83,6 +87,10 @@ gender_display %>%
 
 #Ritulization
 ```{r}
+Ritulization_median <- gender_display %>% group_by(gender) %>% summarise(Mdn = median(Ritulization))
+
+Ritulization_median
+
 gender_display %>%
   wilcox.test(
     Ritulization ~ gender,
