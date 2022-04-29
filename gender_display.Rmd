@@ -10,7 +10,82 @@ library(dplyr)
 library(readr)
 library(ggplot2)
 
+options(scipen = 999)
+
 gender_display <- read_csv(
   '../data/gender_display.csv')
 ```
 
+## Demographic characteristics of the sample
+
+# Gender
+```{r}
+gender_display %>%
+  count(gender)
+
+gender_display %>%
+  ggplot(aes(x = gender)) +
+  geom_bar()
+```
+
+#Femininetouch
+```{r}
+gender_display %>%
+  xtabs(~ gender + Femininetouch, .)
+
+chisq.test(
+  gender_display$gender,
+  gender_display$Femininetouch
+)
+```
+
+#LwGazing
+```{r}
+gender_display %>%
+  xtabs(~ gender + LwGazing, .)
+
+chisq.test(
+  gender_display$gender,
+  gender_display$LwGazing
+)
+```
+
+#LwWithdrawal
+```{r}
+gender_display %>%
+  xtabs(~ gender + LwWithdrawal, .)
+
+chisq.test(
+  gender_display$gender,
+  gender_display$LwWithdrawal
+)
+```
+
+#LwCovering
+```{r}
+gender_display %>%
+  xtabs(~ gender + LwCovering, .)
+
+chisq.test(
+  gender_display$gender,
+  gender_display$LwCovering
+)
+```
+
+#Bodydisplay
+```{r}
+gender_display %>%
+  wilcox.test(
+    Bodydisplay ~ gender,
+    data = .
+  )
+```
+
+#Ritulization
+```{r}
+gender_display %>%
+  wilcox.test(
+    Ritulization ~ gender,
+    data = .
+  )
+```
