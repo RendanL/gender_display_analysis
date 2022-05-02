@@ -97,3 +97,18 @@ gender_display %>%
     data = .
   )
 ```
+
+gender_display <- gender_display %>%
+  mutate(
+    Female = gender == '2')
+
+gender_display %>%
+  ggplot(aes(x = Bodydisplay, fill = Female)) +
+  geom_histogram(
+    binwidth = 0.5)
+    
+gender_display %>%
+  ggplot(aes(x = Ritulization, fill = Female)) +
+  geom_histogram(
+    binwidth = 0.5)    
+    
